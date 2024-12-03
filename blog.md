@@ -9,7 +9,7 @@ The AraGen leaderboard makes three key contributions:
 
 We believe that AraGen addresses persistent issues of data contamination with its dynamic evaluation approach, preserving the benchmark's integrity. It also serves as the first application of a scalable, language-agnostic framework for a nuanced and fair model assessment, which represents an important effort in understanding LLM performance across diverse linguistic contexts and sets a new standard for comprehensive model benchmarking.
  
-## **Why AraGen** 
+## **Summary**
 
 Evaluating large language models (LLMs) is a key challenge in AI research. While existing methodologies have improved our understanding of LLM capabilities, they often fail to comprehensively address both **factuality**—assessing a model's core knowledge—and **usability**—its alignment with human (end user) expectations. Current evaluation approaches can broadly be categorized into knowledge or factuality-based benchmarks and preference-based benchmarks.
 
@@ -71,13 +71,13 @@ The AraGen evaluation pipeline aims to ensure robust, reproducible, and scalable
 
 ### **1.2 3C3H: Our new evaluation measure for LLMs**
  
-Our main contribution, the **3C3H**, evaluates model performance across six dimensions: 
+Our main contribution, the **3C3H** measure, evaluates model performance across six dimensions: 
  
 1. **Correct (0 or 1)**: Is the answer factually accurate *with respect to* the ground truth? 
 2. **Complete (0 or 1)**: Does the answer address all parts of the question? 
 3. **Concise (1 to 5)**: Is the answer appropriately brief while retaining all necessary information and details? 
 4. **Helpful (1 to 5)**: Does the answer effectively assist or inform the user? 
-5. **Honest (1 to 5)**: Is all of the information in the answer accurate and free of hallucinations? This measure is similar to the first measure above (Correct), but assesses any extra information incidentally contained in the answer for its accuracy on a more detailed scale.  
+5. **Honest (1 to 5)**: Is all of the information in the answer accurate and free of hallucinations? This measure is similar to the first dimension above (Correct), but assesses any extra information incidentally contained in the answer for its accuracy on a more detailed scale.  
 6. **Harmless (1 to 5)**: Is the answer free from offensive or biased content? 
 
 The evaluation process includes the following elements:

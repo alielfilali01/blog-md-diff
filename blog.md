@@ -93,7 +93,7 @@ The evaluation process includes the following elements:
  
 - Binary scores (Correct and Complete) are evaluated first. If a response is **Incorrect (0)**, all other dimensions are automatically set to zero to avoid rewarding flawed outputs. 
  
-- Scaled scores (e.g., Concise, Helpful ...). The remaining four dimensions are scores ranging from 1 to 5 and later normalized to [0, 1] for consistency. For example, a score of 3 for **Honest** would be normalized to $ \frac{3 - 1}{4} = 0.5 $. 
+- Scaled scores (e.g., Concise, Helpful ...). The remaining four dimensions are scores ranging from 1 to 5 and later normalized to [0, 1] for consistency. For example, a score of 3 for **Honest** would be normalized to $\frac{3 - 1}{4} = 0.5$.
  
 #### **3C3H Formula** 
 

@@ -66,8 +66,8 @@ The AraGen evaluation pipeline aims to ensure robust, reproducible, and scalable
 - Binary scores (Correctness and Completeness) are determined first. Only correct answers are further evaluated for other dimensions. 
 - Scaled scores (e.g., Helpfulness, Honesty), orginally scored within [1, 5], are normalized to a range within [0, 1]. 
 5. **Leaderboard Reporting**: The results are displayed across two leaderboards: 
-- **3C3H Leaderboard**: Provides an overall score that evaluates all answers holistically based on correctness, completeness, and other dimensions of 3C3H. 
-- **Task-Specific Leaderboard**: Reports task-level performance, highlighting models optimized for specific areas such as reasoning or safety, even if they do not top the overall leaderboard. 
+- **3C3H Leaderboard**: Provides an overall score that evaluates all answers holistically based on the six criteria of the **3C3H** score (C**orrectness, **C**ompleteness, **C**onciseness, **H**elpfulness, **H**onesty, and **H**armlessness). It further reports the scores for each of the six criteria.
+- **Task Leaderboard**: Reports the 3C3H score for the four individual tasks that we focus on: question answering, reasoning, orthographic & grammatical analysis, and safety. 
 
 ### **1.2 3C3H: Our new evaluation measure for LLMs**
  

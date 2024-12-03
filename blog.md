@@ -91,7 +91,7 @@ The evaluation process includes the following elements:
  
 #### **Scoring and Normalization** 
  
-- Binary scores (Correctness and Completeness) are conputed first. If a response is **Incorrect (0)**, all other dimensions are automatically set to zero to avoid rewarding flawed outputs. 
+- Binary scores (Correctness and Completeness) are computed first. If a response is **Incorrect (0)**, all other dimensions are automatically set to zero to avoid rewarding flawed outputs. 
  
 - Scaled scores (e.g., Conciseness, Helpfulness, ...). The remaining four dimensions are scores ranging from 1 to 5 and later normalized to [0, 1] for consistency. For example, a score of 3 for **Honesty** would be normalized to $\frac{3 - 1}{4} = 0.5$.
  

@@ -32,27 +32,6 @@ The **AraGen Leaderboard** ranks both open and proprietary models, evaluated on 
 The leaderboard is dynamic, with evaluation datasets remaining private (blind testing) for three months to ensure fair and unbiased assessments. After this period, the dataset and the corresponding evaluation code will be publicly released, coinciding with the introduction of a new dataset for the next evaluation cycle, which will itself remain private for three months. This iterative process ensures that evaluations stay current and models are consistently tested on fresh, unseen data.  
 We believe that this dynamic approach is both beneficial and robust, as it mitigates data leakage, encourages ongoing model improvement, and maintains the relevance of the benchmark in the rapidly evolving landscape of LLM development.
 
----
-## **Table of Contents** 
- 
-1. **The AraGen Leaderboard** 
-   - Overall Pipeline 
-   - 3C3H: Our new evaluation measure for LLMs
-   - Dynamic Leaderboard for Robustness 
-   - Dataset Design 
-   
- 
-2. **Judge Evaluation and Selection** 
-   - Correlation with Human as a Judge 
-   - Scores Consistency Analysis 
-   - Self Bias Analysis 
-   - Hallucination Analysis 
-   - Jury: Limitations and Insights 
-   - Judge Selection 
- 
-3. **Conclusion** 
---- 
-
 ## **1. The AraGen Leaderboard** 
 
 ### **1.1 Overall Pipeline** 
@@ -138,14 +117,11 @@ The AraGen Benchmark includes 279 custom, mainly human-verified questions design
 3. **Reasoning**: Challenges models to infer, deduce, and reason logically. 
 4. **Safety**: Evaluates the ability to produce responses free from harmful or biased content or avoid obeying harmful requests from users. 
 
-![]()
-Figure 1: Percentage Distribution of Tasks
+![Percentage Distribution of Tasks](https://huggingface.co/spaces/inceptionai/AraGen-Leaderboard/raw/main/assets/pictures/blog_figure_1.png)
 
-![]()
-Figure 2: Category Distribution for Question Answering (QA)  
+![Category Distribution for Question Answering (QA)](https://huggingface.co/spaces/inceptionai/AraGen-Leaderboard/raw/main/assets/pictures/blog_figure_2.png)
 
-![]()
-Figure 3: Category Distribution for Reasoning  
+![Category Distribution for Reasoning](https://huggingface.co/spaces/inceptionai/AraGen-Leaderboard/raw/main/assets/pictures/blog_figure_3.png)
  
  
 For the "Orthographic and Grammatical Analysis" task, the data is evenly distributed between two sub-categories: "Arabic grammar" and "Arabic dictation grammar," each constituting 50% of the examples. In the "Safety" task, all the data belongs exclusively to the "Safety" category/sub-category.
@@ -210,10 +186,9 @@ To evaluate and select the best judge, we assessed candidates across four dimens
  
 We measured the agreement of the judges' evaluations (scores) with respect to each other using **Cohen’s Kappa (κ) Coefficient**. The results are visualized in the heatmap below: 
 
+![Cohen's Kappa Heatmap Representing the Agreement between the Judges on 3C3H Score](https://huggingface.co/spaces/inceptionai/AraGen-Leaderboard/raw/main/assets/pictures/blog_figure_4.png)
 
-![]()
-Figure 4: Cohen's Kappa Heatmap Representing the Agreement between the Judges on 3C3H Score 
- 
+
 #### **Key Observations** 
  
 - **GPT-4o-mini** achieved the highest correlation with human judge, with a κ score of **0.46**, closely followed by **Claude-3.5-sonnet**;

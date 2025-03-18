@@ -1,4 +1,4 @@
-# Arabic LLM Evaluation and Leaderboards: AraGen Update, Instruction Following, and More
+# Arabic LLM Evaluation and Leaderboards: Introducing Arabic Instruction Following, AraGen Update, and More
 
 In this blog, we detail our latest updates and  about evaluation of large language models in Arabic contexts. In collaboration with Mohammed ben Zayed University of Artificial Intelligence, we share insights into our evaluation framework and benchmark evolution. Our goal is to maintain transparency and reproducibility through the public and open release, forstering the  community collaboration, while maintaining the trustworthiness of our benchmarks and results.
 
@@ -10,6 +10,13 @@ In this blog, we detail our latest updates and  about evaluation of large langua
 In December 2024, we introduced the AraGen Benchmark as the foundation for the AraGen Leaderboard. An evaluation framework powered by 3C3H as a metric and adopts a dynamic evaluation philosophy designed to mitigate data contamination and laundering while keeping pace with model improvements. 
 
 Delivering on that promise, today, we publically release the AraGen Benchmark, 12-2024 version, accompanied with all the models answers being judged by claude-3.5-sonnet following the 3C3H guidelines. We hope this benchmark release teh models answers, will get the community to revise them carefully and help us spot any kind of odd behaviour that we might have missed and which we can fix in our upcoming releases.
+
+<iframe
+  src="https://huggingface.co/datasets/inceptionai/AraGen/embed/viewer/default/test"
+  frameborder="0"
+  width="100%"
+  height="560px"
+></iframe>
 
 In addition, we have open-sourced our entire code base. This step is intended to enhance transparency and reproducibility, and we welcome community contributions, whether through issue reports or pull requests.
 

@@ -9,7 +9,7 @@ In this blog, we detail our latest updates and  about evaluation of large langua
 
 In December 2024, we introduced the AraGen Benchmark as the foundation for the AraGen Leaderboard. An evaluation framework powered by 3C3H as a metric and adopts a dynamic evaluation philosophy designed to mitigate data contamination and laundering while keeping pace with model improvements. 
 
-Delivering on that promise, today, we publically release the AraGen Benchmark, 12-2024 version, accompanied with all the models answers being judged by claude-3.5-sonnet following the 3C3H guidelines. We hope this benchmark release teh models answers, will get the community to revise them carefully and help us spot any kind of odd behaviour that we might have missed and which we can fix in our upcoming releases.
+Delivering on that promise, today, we publically release the AraGen Benchmark, 12-2024 version, accompanied with all the models answers being judged by claude-3.5-sonnet following the 3C3H guidelines. We hope this benchmark and models answers release, will get the community to revise them carefully which might even help us spot any sort of odd behaviour that we might have missed and we can fix in our upcoming releases.
 
 <iframe
   src="https://huggingface.co/datasets/inceptionai/AraGen/embed/viewer/default/test"
@@ -22,7 +22,7 @@ In addition, we have open-sourced our entire code base. This step is intended to
 
 ## What’s New Today?
 
-Today’s update marks a shift toward a more comprehensive and unified space for all Arabic evaluations and tasks. The new Arabic-Leaderboards Space is meant to serve as a central hub covering a broad spectrum of evaluations—from language models and (soon) vision-language models to embedding models, tokenizers, and more. We invite interested contributors to reach out to us through the community tab or directly in order to discuss how to integrate their work/leaderboards as addiotional tabs into this space.
+Today’s update marks a shift toward a more comprehensive and unified space for all Arabic evaluations and tasks. The new Arabic-Leaderboards Space is meant to serve as a central hub covering a broad spectrum of evaluations—from language models and (soon) vision-language models to embedding models, tokenizers, and more in the future. We invite interested contributors to reach out to us through the community tab or directly in order to discuss how to integrate their work/leaderboards as addiotional tabs into this space.
 
 
 ### AraGen-03-25 Update
@@ -33,7 +33,7 @@ In this latest AraGen release, we have expanded the dataset to include 340 pairs
 - **Safety Questions:** 40 pairs  
 - **Orthographic and Grammatical Analysis:** 30 pairs  
 
-This allocation reflects the primary focus on question answering as the main use cases of any Language-Model/Chatbot/AI-Assistant. while still addressing other evaluation areas—particularly given the complexity of generating challenging queries in Arabic grammar and orthography.
+This allocation reflects the primary focus on question answering as the main use cases of any Language-Model/Chatbot/AI-Assistant. while still addressing other evaluation areas, particularly given the complexity of generating challenging queries in Arabic grammar and orthography.
 
 *Figure: Task Distribution (Placeholder for plot)*
 
@@ -145,14 +145,13 @@ A model that stood out in this analysis is “silma-ai/SILMA-9B-Instruct-v1.0”
 This is an ongoing effort to better understand how these dimensions are interconnected and how various scenarios and training recipes affect this relationship. Below, we provide a space where you can generate heatmaps for any combination of models of your choice. We hope the community finds it helpful in spotting additional trends that we may not have noticed. Ultimately, we aim for this tool to foster more discussion about evaluation and 3C3H, serving as a resource for others’ work.
 
 <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.4.0/gradio.js"> </script>
-<gradio-app theme_mode="dark" space="alielfilali01/3C3H-HeatMap"></gradio-app>
+<gradio-app theme_mode="dark" space="inceptionai/3C3H-HeatMap"></gradio-app>
 
 We believe that one limitation of this analysis is the zeroing rule, whereby we do not evaluate the other dimensions if the answer is not correct. In the future, we plan to investigate further whether an answer can be helpful despite being incorrect, and how dimensions such as conciseness and harmlessness factor into this evaluation if the answer is not correct.
 
 
 ### Instruction Following
 
-### Jawaher
 
 ## Upcoming Work
 

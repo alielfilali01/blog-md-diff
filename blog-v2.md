@@ -35,7 +35,7 @@ In this latest AraGen release, we have expanded the dataset to include 340 pairs
 
 This allocation reflects the primary focus on question answering as the main use cases of any Language-Model/Chatbot/AI-Assistant. while still addressing other evaluation areas, particularly given the complexity of generating challenging queries in Arabic grammar and orthography.
 
-*Figure: Task Distribution (Placeholder for plot)*
+![Tasks Distribution (%)](https://huggingface.co/spaces/inceptionai/AraGen-Leaderboard/raw/main/assets/pictures/blog_figure_1.png)
 
 Additionally, we refined the judge system prompt to enhance clarity—even for smaller/weaker judge models. Both the previous and current system prompts are available in our code base, and we encourage the community to experiment more around altering the system prompt for different judges.
 
@@ -46,7 +46,16 @@ Adopting dynamic evaluation cycles introduces the challenge of ensuring that our
 
 ##### Analysis of Ranking Changes
 
-We compare two distinct scenarios:
+We analyzed model performance under two evaluation scenarios: (1) altering only the system prompt (SP1 vs. SP2) using the latest AraGen version (AraGen-03-25), and (2) updating both the dataset and judge system prompt. The overall rankings were stable, with the top-performing model (*o1-2024-12-17*) consistently maintaining its lead. Notably, we observed a swap in rankings between two Claude models, underscoring the sensitivity of our evaluation approach, especially given their initially close scores.
+
+The only significant change in rankings was for the *gpt-4o-2024-08-06* model, whose performance markedly improved with the updated dataset and prompt. This sudden jump is currently under investigation as part of our ongoing benchmarks-design research.
+
+No major variations occurred solely due to changes in the system prompt, indicating good reproducibility as long as the same judge model (*claude-3.5-sonnet*) is used. However, we anticipate potential variations with smaller or weaker models as judges, where employing the second system prompt (SP2) may enhance consistency.
+
+The robust, consistently top-ranking performance of *o1-2024-12-17* reinforces its reliability for Arabic applications. While recent updates to the evaluation pipeline introduced minor ranking shifts, the overall framework remained stable, with top and bottom performers showing consistency. Many observed ranking adjustments likely reflect typical evaluation error margins due to minor score differences. Notably, the second-ranked model’s score significantly dropped from 78.74% (AraGen-12-24) to 57.38% (AraGen-03-25), clearly indicating that the updated AraGen dataset poses a more challenging benchmark aligned with current advancements in reasoning models.
+
+<details>
+  <summary>More Detailed Scores</summary>
 
 ###### Couple 1: System Prompt Effect (AraGen-03-25 SP1 vs. AraGen-03-25 SP2)
 
@@ -124,11 +133,8 @@ We compare two distinct scenarios:
   - The Claude variants show a slight reordering, mirroring the previous observations.
 - **Mid-Tier Adjustments:** Minor ranking shifts are observed among mid-tier models, which may fall within typical evaluation error margins.
 
-###### Conclusion
+</details>
 
-We do not report any changes when altering the system prompt, and we believe that the results should remain reproducible regardless of the system prompt used—as long as the same judge model (claude-3.5-sonnet) is employed. However, this consistency may not hold for smaller and weaker models, for which we encourage the use of the second system prompt.
-
-The robust performance of o1-2024-12-17 underscores its status as the most reliable model for Arabic applications. Although updates to the evaluation pipeline have introduced some ranking adjustments, the overall framework remains stable, with both top and bottom performers showing consistency. Many of the observed reshuffles likely fall within the typical evaluation error margins due to the small, non-significant differences in scores. Notably, the score for the second-ranked model dropped from 78.74% in AraGen-12-24 to 57.38% in AraGen-03-25, reflecting the increased challenge of the new AraGen set in keeping pace with recent model developments (reasoning models and more).
 
 #### Analysis of 3C3H
 

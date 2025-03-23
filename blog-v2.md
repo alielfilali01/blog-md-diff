@@ -1,6 +1,34 @@
-# Arabic LLM Evaluation and Leaderboards: Introducing Arabic Instruction Following, AraGen Update, and More
+---
+title: "Arabic Leaderboards: Introducing Arabic Instruction Following, Updating AraGen, and More"
+thumbnail: /blog/assets/leaderboards-on-the-hub/thumbnail_3c3h_aragen.png
+authors:
+- user: alielfilali01
+  guest: true
+  org: inceptionai
+- user: SarahAlBarri
+  guest: true
+  org: inceptionai
+- user: Arwa88
+  guest: true
+  org: inceptionai
+- user: samta-kamboj
+  guest: true
+  org: inceptionai
+- user: neha1710
+  guest: true
+  org: inceptionai
+- user: preslavnakov
+  guest: true
+  org: MBZUAI
+---
 
-In this blog, we detail our latest updates and  about evaluation of large language models in Arabic contexts. In collaboration with Mohammed ben Zayed University of Artificial Intelligence, we share insights into our evaluation framework and benchmark evolution. Our goal is to maintain transparency and reproducibility through the public and open release, forstering the  community collaboration, while maintaining the trustworthiness of our benchmarks and results.
+# Arabic Leaderboards: Introducing Arabic Instruction Following, Updating AraGen, and More
+
+In this blog post, we introduce recent advancements in benchmarking and evaluating large language models within Arabic-language contexts. In collaboration with Mohammed bin Zayed University of Artificial Intelligence (MBZUAI), we present significant updates to our AraGen benchmark and evaluation framework. Key contributions include the public release of the AraGen-12-24 benchmark and associated model answers judged using the 3C3H evaluation metric, the open-sourcing of our entire evaluation codebase, and the establishment of a unified Arabic-Leaderboards Space designed as a central hub for diverse Arabic language model evaluations. 
+
+Additionally, we introduce Arabic Instruction Following (AIF), the first publicly available dataset specifically designed to evaluate language models' capabilities in instruction following within Arabic contexts. The Arabic Instruction Following dataset features samples meticulously crafted to reflect unique linguistic attributes, such as diacritization and distinctive phonetic features. This dataset includes both original, linguistically authentic examples created by our expert linguistic team and carefully adapted samples from English datasets, thoroughly reviewed for cultural relevance. Our comprehensive evaluation framework distinguishes between explicit instructions, directly stated in prompts, and implicit instructions inferred from contextual cues.This release comes accompanied by an open-source evaluation code and a publicly accessible leaderboard as part of the Arabic-Leaderboard Space, benchmarking performance in Arabic and English, in order to provide and easier comparative study of models performance in Instruction Following as a task.
+
+Our work emphasizes transparency, reproducibility, and community-driven improvements, aiming to foster rigorous research practices and robust assessment standards within the Arabic NLP community.
 
 <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.4.0/gradio.js"> </script>
 <gradio-app theme_mode="dark" space="inceptionai/AraGen-Leaderboard"></gradio-app>
@@ -158,6 +186,7 @@ We believe that one limitation of this analysis is the zeroing rule, whereby we 
 
 ### Instruction Following
 
+[PENDING PR]
 
 ## Upcoming Work
 

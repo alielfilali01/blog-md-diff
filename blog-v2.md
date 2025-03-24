@@ -186,7 +186,16 @@ We believe that one limitation of this analysis is the zeroing rule, whereby we 
 
 ### Instruction Following
 
-[PENDING PR]
+Instruction-following capability is a core measure of LLMs performance, crucial for building trustworthy and reliable AI assistants. While Google's original IFEval benchmark effectively assessed English-language models, Arabic remained underserved. To address this gap, we've developed Arabic IFEval, the first publicly available dataset specifically tailored to evaluate Arabic LLMs’ instruction-following capabilities. You could find the dataset on our huggingface link: inceptionai/Arabic_IFEval 
+
+
+Our Arabic IFEval dataset began by carefully adapting approximately 300 prompts from the original English IFEval. This wasn't a straightforward translation; instead, we thoughtfully adjusted prompts to reflect Arabic linguistic nuances and cultural contexts. Additionally, we created unique Arabic-specific samples from scratch, emphasizing features such as distinctive Arabic phonetics, diacritization, and the targeted use of specific Arabic consonants. These original prompts are designed to test model capabilities unique to Arabic language usage, going beyond what English benchmarks typically capture.
+
+
+To rigorously evaluate models, we employed a detailed methodology combining explicit and implicit evaluation methods. Explicit evaluation used automated scripts to objectively verify if instructions were strictly followed, such as correct formatting or specific word usage. Implicit evaluation tackled subtler linguistic expectations, like maintaining the response language or avoiding repetitive patterns. We also used the scoring metrics at both prompt-level and instruction-level granularity that was introduced by English IFEval, we measured it using strict criteria accuracy which requires perfect adherence to the instruction.
+
+
+Evaluations of various LLMs highlighted specific challenges unique to Arabic, including language mismatches, unintended safety-blocking behaviors, and frequent hallucinations in outputs. Notably, models performed significantly worse on Arabic prompts compared to their English counterparts, demonstrating the urgent need for benchmarks like Arabic IFEval. To further support research, we have open-sourced the dataset, evaluation scripts, and established a leaderboard that benchmarks more than 40 models, inviting ongoing collaboration and contributions from the NLP community.
 
 ## Upcoming Work
 

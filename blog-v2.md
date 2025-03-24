@@ -35,7 +35,7 @@ Our work emphasizes transparency, reproducibility, and community-driven improvem
 
 ## About the AraGen-12-24 Release
 
-In December 2024, we introduced the AraGen Benchmark as the foundation for the AraGen Leaderboard. An evaluation framework powered by 3C3H as a metric and adopts a dynamic evaluation philosophy designed to mitigate data contamination and laundering while keeping pace with model improvements. 
+In December 2024, we introduced the AraGen Benchmark as the foundation for the AraGen Leaderboard. An evaluation framework powered by 3C3H as a metric and adopts a dynamic evaluation philosophy in order to mitigate data contamination and laundering while keeping pace with model improvements. 
 
 Delivering on that promise, today, we publically release the AraGen Benchmark, 12-2024 version, accompanied with all the models answers being judged by claude-3.5-sonnet following the 3C3H guidelines. We hope this benchmark and models answers release, will get the community to revise them carefully which might even help us spot any sort of odd behaviour that we might have missed and we can fix in our upcoming releases.
 

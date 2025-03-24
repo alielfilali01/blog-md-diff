@@ -199,5 +199,5 @@ Evaluations of various LLMs highlighted specific challenges unique to Arabic, in
 
 ## Upcoming Work
 
-As part of our work we will be adding and updating more leaderboards to the Arabic-Leaderboards Space as our internall work progress.
+As part of our work we will be adding and updating more leaderboards to the Arabic-Leaderboards Space as our internal work progress.
 In the upcoming releases, we expect to put online a leaderbaord for visual question-answering across multiple tasks powered by camel-bench and kitab from our collaborators at MBZUAI.

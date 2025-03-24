@@ -63,7 +63,7 @@ In this latest AraGen release, we have expanded the dataset to include 340 pairs
 
 This allocation reflects the primary focus on question answering as the main use cases of any Language-Model/Chatbot/AI-Assistant. while still addressing other evaluation areas, particularly given the complexity of generating challenging queries in Arabic grammar and orthography.
 
-![Tasks Distribution (%)](https://huggingface.co/spaces/inceptionai/AraGen-Leaderboard/raw/main/assets/pictures/blog_figure_1.png)
+![Tasks Distribution (%)](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards-exp/raw/main/assets/pictures/PercentageDistributionOfTasks.png)
 
 Additionally, we refined the judge system prompt to enhance clarity—even for smaller/weaker judge models. Both the previous and current system prompts are available in our code base, and we encourage the community to experiment more around altering the system prompt for different judges.
 

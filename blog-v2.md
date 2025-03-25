@@ -299,7 +299,7 @@ We evaluated a broad range of LLMs on both the English IFEval benchmark and our 
 We evaluated a broad range of LLMs on both the English IFEval benchmark and our new Arabic IFEval. This included both closed-source models (like OpenAI's GPT & Anthropic's Claude models) and open-source models (Jais series, Meta’s LLaMA-2 variants, open bilingual models, etc.), totaling over 40 models. Below you can expand some of the results obtained for a representative subset of models, comparing their prompt-level accuracy on English vs Arabic IFEval (All values are percentages of prompts passed). 
 
 <details>
-  <summary>Instruction Following Leaderboard Samples</summary>
+  <summary>Instruction Following Leaderboard Sample</summary>
     
 **Table 5. Sample Scores from Instruction Following Benchmark** 
 | Rank | Model Name                         | Arabic Prompt-lvl (%) | English Prompt-lvl (%) |
@@ -316,6 +316,7 @@ We evaluated a broad range of LLMs on both the English IFEval benchmark and our 
 | 10   | meta-llama/Llama-3.3-70B-Instruct  | 58.2                  | 88.2                   |
 
 </details>
+
 
 ## Upcoming Work
 

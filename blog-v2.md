@@ -183,19 +183,137 @@ This is an ongoing effort to better understand how these dimensions are intercon
 
 We believe that one limitation of this analysis is the zeroing rule, whereby we do not evaluate the other dimensions if the answer is not correct. In the future, we plan to investigate further whether an answer can be helpful despite being incorrect, and how dimensions such as conciseness and harmlessness factor into this evaluation if the answer is not correct.
 
-
 ### Instruction Following
 
-Instruction-following capability is a core measure of LLMs performance, crucial for building trustworthy and reliable AI assistants. While Google's original IFEval benchmark effectively assessed English-language models, Arabic remained underserved. To address this gap, we've developed Arabic IFEval, the first publicly available dataset specifically tailored to evaluate Arabic LLMs’ instruction-following capabilities. You could find the dataset on our huggingface link: inceptionai/Arabic_IFEval 
+#### What is Instruction Following as a Benchmark? 
 
+One of the core capabilities of large language models (LLMs) is their ability to understand and follow human instructions. This skill is crucial for building reliable chatbots, virtual assistants, and AI systems that do what users ask. Without strong instruction-following, a model might generate correct information but in the wrong format, ignore user-specified constraints, or produce unwanted content. Instruction-Following benchmark is standardized, objective way to measure a model's instruction adherence and compare models fairly to drive improvements. 
 
-Our Arabic IFEval dataset began by carefully adapting approximately 300 prompts from the original English IFEval. This wasn't a straightforward translation; instead, we thoughtfully adjusted prompts to reflect Arabic linguistic nuances and cultural contexts. Additionally, we created unique Arabic-specific samples from scratch, emphasizing features such as distinctive Arabic phonetics, diacritization, and the targeted use of specific Arabic consonants. These original prompts are designed to test model capabilities unique to Arabic language usage, going beyond what English benchmarks typically capture.
+#### Dataset: Arabic IFEval 
 
+Our work took inspiration from IFEval dataset. IFEval, originally introduced by Google, provides a structured benchmark designed explicitly to evaluate LLMs on their ability to follow verifiable instructions. It consists of prompts containing specific, objectively measurable commands such as “use exactly three bullet points,” “include the word ‘innovation’ twice,” or “limit your answer to 100 words.”  English IFEval dataset contains around 500 prompts covering 25 different types of such verifiable instructions. Evaluation within IFEval is conducted through Python functions that automatically verify whether instructions are followed or not avoiding the need for human evaluators or another AI judge, this makes the evaluations **reproducible and unbiased**. While IFEval dataset has become the standard for assessing English-LLMs, a similarly detailed and structured resource is absent for Arabic, leaving a gap in evaluating Arabic LLMs' instrcution-following capabilities.
 
-To rigorously evaluate models, we employed a detailed methodology combining explicit and implicit evaluation methods. Explicit evaluation used automated scripts to objectively verify if instructions were strictly followed, such as correct formatting or specific word usage. Implicit evaluation tackled subtler linguistic expectations, like maintaining the response language or avoiding repetitive patterns. We also used the scoring metrics at both prompt-level and instruction-level granularity that was introduced by English IFEval, we measured it using strict criteria accuracy which requires perfect adherence to the instruction.
+Construction of our **Arabic IFEval** dataset began by carefully adapting approximately 300 prompts from the original English IFEval. This wasn't a straightforward, word-for-word translation; instead, we thoughtfully adjusted prompts to clearly reflect Arabic linguistic nuances and cultural contexts. Instructions that made little sense in Arabic, such as those involving English-specific vowel constraints, were either adapted to equivalent Arabic linguistic challenges or omitted entirely. Cultural references specific to English-speaking contexts were replaced with culturally relevant or Arabic-language equivalents to maintain contextual clarity. Additionally, we created unique Arabic-specific samples from scratch, specifically designed to emphasize distinctive Arabic phonetics, orthographic characteristics, and morphology, such as the careful use of diacritical marks (tashkīl), phonetic constraints like avoiding certain letters (e.g., writing without using the letter Alef (ا)), and leveraging root-based morphology to challenge models' word-selection abilities. All prompts underwent rigorous expert validation by  Arabic linguists and domain experts who ensured grammatical accuracy, cultural appropriateness, and unambiguous clarity of each instruction.
 
+**Arabic IFEval** dataset is publicly available for the research community to utilize, test, and contribute to. It is available on Huggingface under [inceptionai/Arabic_IFEval](https://huggingface.co/datasets/inceptionai/Arabic_IFEval)
 
-Evaluations of various LLMs highlighted specific challenges unique to Arabic, including language mismatches, unintended safety-blocking behaviors, and frequent hallucinations in outputs. Notably, models performed significantly worse on Arabic prompts compared to their English counterparts, demonstrating the urgent need for benchmarks like Arabic IFEval. To further support research, we have open-sourced the dataset, evaluation scripts, and established a leaderboard that benchmarks more than 40 models, inviting ongoing collaboration and contributions from the NLP community.
+<details>
+  <summary><strong>Sample I from Arabic IFEval</strong></summary>
+
+**Prompt (Ar):**  
+فسر كيف يمكن للتقنيات الحديثة مثل الذكاء الاصطناعي أن تسهم في الحفاظ على الأدب العربي، مع تضمين 12 كلمة تنتهي بأحد الحروف الرافسة (د، ذ، أ، ر، ز، و)، وأن تكون الإجابة مكتوبة بأسلوب موجز لا يتجاوز 120 كلمة. يجب أن لا تحتوي إجابتك على أي فواصل.
+
+**Prompt Translation (En):**
+Explain how modern technologies, such as artificial intelligence, can contribute to preserving Arabic literature. Your answer should include at least 12 words ending with one of these specific Arabic letters (د، ذ، أ، ر، ز، و), be concise, and should not exceed 120 words. Your response must not contain any commas.
+
+**Instructions to follow:**  
+- **Letter Frequency Constraint:** Include at least 12 words ending with one of the letters (د، ذ، أ، ر، ز، و).  
+- **Punctuation Constraint:** Do not use commas.  
+- **Length Constraint:** Write concisely, not exceeding 120 words.
+
+**Example JSON Format:**
+```json
+{
+  "key": 4767,
+  "prompt": "فسر كيف يمكن للتقنيات الحديثة مثل الذكاء الاصطناعي أن تسهم في الحفاظ على الأدب العربي، مع تضمين 12 كلمة تنتهي بأحد الحروف الرافسة (د، ذ، أ، ر، ز، و)، وأن تكون الإجابة مكتوبة بأسلوب موجز لا يتجاوز 120 كلمة. يجب أن لا تحتوي إجابتك على أي فواصل.",
+  "instruction_id_list": [
+    "keywords:letter_list_freq",
+    "punctuation:no_comma",
+    "length_constraints:number_words"
+  ],
+  "kwargs": [
+    {
+      "letters": ["د", "ذ", "أ", "ر", "ز", "و"],
+      "frequency": 12,
+      "relation": "at least",
+      "position": "end"
+    },
+    {},
+    {
+      "relation": "less than",
+      "num_words": 500
+    }
+  ],
+  "lang": ["ar"]
+}
+```
+</details>
+
+<details>
+  <summary><strong>Sample II from Arabic IFEval</strong></summary>
+
+**Prompt (Ar):**
+اكتب قصة قصيرة عن الرقم 600، على أن يكتب الرقم في القصة بالكلمات وبكل الصيغ المفقطة الممكنة له على الأقل مرة (ستة مائة - ست مئة - ستمئة - ستمائة).
+
+**Prompt Translation (En):**  
+Write a short story about the number 600. Within the story, the number should be spelled out in Arabic in all possible written forms at least once each ("ستة مائة", "ست مئة", "ستمئة", "ستمائة").
+
+**Instructions to follow:**  
+Your response must explicitly include the following Arabic spellings at least once each:
+- ستة
+- مائة
+- ست
+- مئة
+- ستمئة
+- ستمائة
+
+**Example JSON Format:**
+```json
+{
+  "key": 4768,
+  "prompt": "اكتب قصة قصيرة عن الرقم 600، على أن يكتب الرقم في القصة بالكلمات وبكل الصيغ المفقطة الممكنة له على الأقل مرة (ستة مائة - ست مئة - ستمئة - ستمائة).",
+  "instruction_id_list": [
+    "keywords:frequency",
+    "keywords:frequency",
+    "keywords:frequency",
+    "keywords:frequency",
+    "keywords:frequency",
+    "keywords:frequency"
+  ],
+  "kwargs": [
+    {"relation": "at least", "keyword": "ستة", "frequency": 1},
+    {"relation": "at least", "keyword": "مائة", "frequency": 1},
+    {"relation": "at least", "keyword": "ست", "frequency": 1},
+    {"relation": "at least", "keyword": "مئة", "frequency": 1},
+    {"relation": "at least", "keyword": "ستمئة", "frequency": 1},
+    {"relation": "at least", "keyword": "ستمائة", "frequency": 1}
+  ],
+  "lang": ["ar"]
+}
+```
+</details>
+
+#### Evaluation Methodology & Metrics 
+
+To evaluate the models, we adopted a comprehensive methodology combining both explicit and implicit evaluation techniques. Explicit evaluation involved using automated scripts to  assess whether instructions were strictly followed, focusing on elements such as correct formatting and specific word usage. Implicit evaluation addressed more nuanced linguistic expectations, such as maintaining the intended response language and avoiding repetitive patterns.
+
+Additionally, we utilized scoring metrics introduced by Google in the  IFEval framework, applying these metrics at both prompt-level and instruction-level granularity. These metrics were measured using strict criteria accuracy, which requires  adherence to the provided instructions. The prompt-level score is notably harder, reflecting the user's viewpoint by asking, "Did I get everything I requested?" If a prompt included multiple requirements, failing to meet any single requirement would mean the user's request was not fully satisfied. In contrast, the instruction-level score is more lenient, allowing us to evaluate partial compliance.
+
+In our analysis, we will emphasize the prompt-level strict accuracy as it provides the most rigorous assessment of a model's instruction-following capabilities.
+
+#### Results & Analysis
+We evaluated a broad range of LLMs on both the English IFEval benchmark and our newly introduced Arabic IFEval. This encompassed closed-source models (such as OpenAI's GPT series and Anthropic's Claude models) and open-source alternatives (including the Jais series, Meta’s LLaMA-2 variants, and various open bilingual models), amounting to over 40 different models in total. Below, we present a summary of results for a representative subset of these models, comparing their prompt-level accuracy on both English and Arabic IFEval. Accuracy is reported using both strict and loose criteria, with values expressed as the percentage of prompts successfully completed.
+
+We evaluated a broad range of LLMs on both the English IFEval benchmark and our new Arabic IFEval. This included both closed-source models (like OpenAI's GPT & Anthropic's Claude models) and open-source models (Jais series, Meta’s LLaMA-2 variants, open bilingual models, etc.), totaling over 40 models. Below you can expand some of the results obtained for a representative subset of models, comparing their prompt-level accuracy on English vs Arabic IFEval (All values are percentages of prompts passed). 
+
+<details>
+  <summary>Instruction Following Leaderboard Samples</summary>
+    
+**Table 5. Sample Scores from Instruction Following Benchmark** 
+| Rank | Model Name                         | Arabic Prompt-lvl (%) | English Prompt-lvl (%) |
+|------|------------------------------------|-----------------------|------------------------|
+| 1    | claude-3.5-sonnet                  | 72.5                  | 84.7                   |
+| 2    | gpt-4o-2024-08-06                  | 70.8                  | 79.4                   |
+| 3    | gpt-4o-mini-2024-07-18             | 68.1                  | 76.9                   |
+| 4    | claude-3.5-haiku                   | 67.1                  | 78.2                   |
+| 5    | Qwen/Qwen2.5-72B-Instruct          | 67.3                  | 83.5                   |
+| 6    | Qwen/Qwen2.5-32B-Instruct          | 60.4                  | 77.6                   |
+| 7    | google/gemma-2-27b-it              | 59.4                  | 76.1                   |
+| 8    | CohereForAI/aya-expanse-32b        | 56.7                  | 65.1                   |
+| 9    | CohereForAI/c4ai-command-r7b-12-2024 | 56.4                  | 74.9                   |
+| 10   | meta-llama/Llama-3.3-70B-Instruct  | 58.2                  | 88.2                   |
+
+</details>
 
 ## Upcoming Work
 

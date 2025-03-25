@@ -198,7 +198,8 @@ Construction of our **Arabic IFEval** dataset began by carefully adapting approx
 **Arabic IFEval** dataset is publicly available for the research community to utilize, test, and contribute to. It is available on Huggingface under [inceptionai/Arabic_IFEval](https://huggingface.co/datasets/inceptionai/Arabic_IFEval)
 
 <details>
-  <summary><strong>Sample I from Arabic IFEval</strong></summary>
+  <summary><strong>Sample I: Arabic IFEval</strong></summary>
+
 
 **Prompt (Ar):**  
 فسر كيف يمكن للتقنيات الحديثة مثل الذكاء الاصطناعي أن تسهم في الحفاظ على الأدب العربي، مع تضمين 12 كلمة تنتهي بأحد الحروف الرافسة (د، ذ، أ، ر، ز، و)، وأن تكون الإجابة مكتوبة بأسلوب موجز لا يتجاوز 120 كلمة. يجب أن لا تحتوي إجابتك على أي فواصل.
@@ -240,7 +241,8 @@ Explain how modern technologies, such as artificial intelligence, can contribute
 </details>
 
 <details>
-  <summary><strong>Sample II from Arabic IFEval</strong></summary>
+  <summary><strong>Sample II: Arabic IFEval</strong></summary>
+
 
 **Prompt (Ar):**
 اكتب قصة قصيرة عن الرقم 600، على أن يكتب الرقم في القصة بالكلمات وبكل الصيغ المفقطة الممكنة له على الأقل مرة (ستة مائة - ست مئة - ستمئة - ستمائة).

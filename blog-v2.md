@@ -63,7 +63,7 @@ In this latest AraGen release, we have expanded the dataset to include 340 pairs
 
 This allocation reflects the primary focus on question answering as the main use cases of any Language-Model/Chatbot/AI-Assistant. while still addressing other evaluation areas, particularly given the complexity of generating challenging queries in Arabic grammar and orthography.
 
-![Tasks Distribution (%)](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/PercentageDistributionOfTasks.png)
+![Tasks Distribution (%)](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/PercentageDistributionOfTasks.png)
 
 Additionally, we refined the judge system prompt to enhance clarity—even for smaller/weaker judge models. Both the previous and current system prompts are available in our code base, and we encourage the community to experiment more around altering the system prompt for different judges.
 
@@ -170,11 +170,11 @@ As part of our December release, we introduced 3C3H as a new evaluation measure 
 
 One emergent trend is that the various dimensions are almost perfectly correlated. In most cases, correct answers are scored as both highly helpful and harmless, while most models fail to maintain this correlation for the conciseness dimension. This generally reflects the way we train these models today, where increased helpfulness is often rewarded with higher verbosity. This trend has recently caught the attention of the research community, as exemplified by the release of OpenAI’s GPT-4.5 model. According to their use cases section, answers from GPT-4.5 are more concise than those from GPT-4, while still being equally helpful. (comprehensive evaluation of gpt-4.5 will be available soon - post this release)
 
-![HeatMap for o1-2024-12-17](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/o1-heatmap.png)
+![HeatMap for o1-2024-12-17](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/o1-heatmap.png)
 
 A model that stood out in this analysis is “silma-ai/SILMA-9B-Instruct-v1.0”, which exhibited a higher conciseness score compared to other open-weight models—even those with larger sizes. However, this gain in conciseness came at the cost of helpfulness and other dimensions when compared to its base model, “google/gemma-2-9b-it”. We believe that this analysis, along with optimizing for 3C3H, will enable the community to develop better models through curated datasets while maintaining the correlation across all dimensions.
 
-![SILMA-9B-Instruct-v1.0 VS Gemma-2-9b-it HeatMaps](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/silma-vs-gemma-heatmap.png)
+![SILMA-9B-Instruct-v1.0 VS Gemma-2-9b-it HeatMaps](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/silma-vs-gemma-heatmap.png)
 
 This is an ongoing effort to better understand how these dimensions are interconnected and how various scenarios and training recipes affect this relationship. Below, we provide a space where you can generate heatmaps for any combination of models of your choice. We hope the community finds it helpful in spotting additional trends that we may not have noticed. Ultimately, we aim for this tool to foster more discussion about evaluation and 3C3H, serving as a resource for others’ work.
 

@@ -24,20 +24,34 @@ authors:
 
 # Arabic Leaderboards: Introducing Arabic Instruction Following, Updating AraGen, and More
 
-In this blog post, we introduce recent advancements in benchmarking and evaluating large language models within Arabic-language contexts. In collaboration with Mohammed bin Zayed University of Artificial Intelligence (MBZUAI), we present significant updates to our AraGen benchmark and evaluation framework. Key contributions include the public release of the AraGen-12-24 benchmark and associated model answers judged using the 3C3H evaluation metric, the open-sourcing of our entire evaluation codebase, and the establishment of a unified Arabic-Leaderboards Space designed as a central hub for diverse Arabic language model evaluations. 
 
-Additionally, we introduce Arabic Instruction Following (AIF), the first publicly available dataset specifically designed to evaluate language models' capabilities in instruction following within Arabic contexts. The Arabic Instruction Following dataset features samples meticulously crafted to reflect unique linguistic attributes, such as diacritization and distinctive phonetic features. This dataset includes both original, linguistically authentic examples created by our expert linguistic team and carefully adapted samples from English datasets, thoroughly reviewed for cultural relevance. Our comprehensive evaluation framework distinguishes between explicit instructions, directly stated in prompts, and implicit instructions inferred from contextual cues.This release comes accompanied by an open-source evaluation code and a publicly accessible leaderboard as part of the Arabic-Leaderboard Space, benchmarking performance in Arabic and English, in order to provide and easier comparative study of models performance in Instruction Following as a task.
+We have been working to enhance AI model evaluations within the Arabic language context. Previously, we introduced **AraGen**, one of the first generative Arabic leaderboards, serving as a benchmark for evaluating Arabic LLMs on generative tasks.  
 
-Our work emphasizes transparency, reproducibility, and community-driven improvements, aiming to foster rigorous research practices and robust assessment standards within the Arabic NLP community.
+As part of our ongoing efforts, we are excited to share the following updates:  
+
+- **Arabic-Leaderboards Space**, launched in collaboration with **Mohammed bin Zayed University of Artificial Intelligence (MBZUAI)** to consolidate Arabic AI evaluations in one place. This platform currently supports **AraGen 2** and **Arabic Instruction Following**, with plans to expand to leaderboards for Arabic AI models across various modalities.
+- **AraGen 03-25 release** with improvements and updated benchmark.  
+- **Arabic Instruction Following leaderboard**, powered by **Arabic IFEval Benchmark**, the first publicly available benchmark for evaluating instruction-following capabilities in Arabic.  
+
 
 <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.4.0/gradio.js"> </script>
 <gradio-app theme_mode="dark" space="inceptionai/AraGen-Leaderboard"></gradio-app>
 
-## About the AraGen-12-24 Release
+The following sections provide details about each of these updates.
 
-In December 2024, we introduced the AraGen Benchmark as the foundation for the AraGen Leaderboard. An evaluation framework powered by 3C3H as a metric and adopts a dynamic evaluation philosophy in order to mitigate data contamination and laundering while keeping pace with model improvements. 
+## Arabic-Leaderboards Space
+**Arabic-Leaderboards**[add a link] is a comprehensive and unified space for all Arabic evaluations and tasks. It is meant to serve as a central hub covering a broad spectrum of evaluations, for models across modalities. Currently, it has AraGen 2 and Arabic Instruction Following as live leaderboards. We plan to expand this space with more leaderboards and tasks for Arabic AI models across various modalities. 
 
-Delivering on that promise, today, we publically release the AraGen Benchmark, 12-2024 version, accompanied with all the models answers being judged by claude-3.5-sonnet following the 3C3H guidelines. We hope this benchmark and models answers release, will get the community to revise them carefully which might even help us spot any sort of odd behaviour that we might have missed and we can fix in our upcoming releases.
+We invite interested contributors to reach out to us through the community tab[add a link] or directly in order to discuss how to integrate their work/leaderboards as additional tabs into this space.
+
+## Latest Updates in AraGen Leaderboard
+
+In December 2024, we introduced the AraGen Benchmark as the foundation for the AraGen Leaderboard. A key feature of this leaderboard is its dynamic nature, with evaluation datasets remaining private (blind testing) for three months to ensure fair and unbiased assessments. Adhering to the same philosophy, we are publicly releasing the **AraGen-12-24 benchmark**[ADD A LINK], along with all model responses evaluated by **Claude-3.5-Sonnet** following the **3C3H guidelines**.  
+
+By sharing this benchmark and model responses, we aim to encourage the community to review them, identify any unexpected behaviors we may have missed and help us refine our evaluation framework.
+
+AraGen leaderboard is updated with a new version of benchmark (AraGen-03-25).
+
 
 <iframe
   src="https://huggingface.co/datasets/inceptionai/AraGen/embed/viewer/default/test"
@@ -46,14 +60,13 @@ Delivering on that promise, today, we publically release the AraGen Benchmark, 1
   height="560px"
 ></iframe>
 
-In addition, we have open-sourced our entire code base. This step is intended to enhance transparency and reproducibility, and we welcome community contributions, whether through issue reports or pull requests.
+[//]: # (In addition, we have open-sourced our entire code base. This step is intended to enhance transparency and reproducibility, and we welcome community contributions, whether through issue reports or pull requests.)
 
-## What’s New Today?
+[//]: # (## What’s New Today?)
 
-Today’s update marks a shift toward a more comprehensive and unified space for all Arabic evaluations and tasks. The new Arabic-Leaderboards Space is meant to serve as a central hub covering a broad spectrum of evaluations—from language models and (soon) vision-language models to embedding models, tokenizers, and more in the future. We invite interested contributors to reach out to us through the community tab or directly in order to discuss how to integrate their work/leaderboards as addiotional tabs into this space.
+[//]: # (Today’s update marks a shift toward a more comprehensive and unified space for all Arabic evaluations and tasks. The new Arabic-Leaderboards Space is meant to serve as a central hub covering a broad spectrum of evaluations—from language models and &#40;soon&#41; vision-language models to embedding models, tokenizers, and more in the future. We invite interested contributors to reach out to us through the community tab or directly in order to discuss how to integrate their work/leaderboards as additional tabs into this space.)
 
-
-### AraGen-03-25 Update
+### AraGen-03-25 Release
 
 In this latest AraGen release, we have expanded the dataset to include 340 pairs of questions and answers, up from 279 in the previous version. The distribution remains relatively similar:
 - **Question Answering:** ~200 pairs  
@@ -61,20 +74,27 @@ In this latest AraGen release, we have expanded the dataset to include 340 pairs
 - **Safety Questions:** 40 pairs  
 - **Orthographic and Grammatical Analysis:** 30 pairs  
 
-This allocation reflects the primary focus on question answering as the main use cases of any Language-Model/Chatbot/AI-Assistant. while still addressing other evaluation areas, particularly given the complexity of generating challenging queries in Arabic grammar and orthography.
+This allocation reflects the primary focus on question answering as the main use cases of any Language-Model/Chatbot/AI-Assistant, while still addressing other evaluation areas, particularly given the complexity of generating challenging queries in Arabic grammar and orthography.
 
 ![Tasks Distribution (%)](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/PercentageDistributionOfTasks.png)
 
-Additionally, we refined the judge system prompt to enhance clarity—even for smaller/weaker judge models. Both the previous and current system prompts are available in our code base, and we encourage the community to experiment more around altering the system prompt for different judges.
+Additionally, we refined the **judge system prompt** to enhance clarity, even for smaller/weaker judge models. 
+
+[//]: # (Both the previous and current system prompts are available in our code base, and we encourage the community to experiment more around altering the system prompt for different judges.)
 
 
-#### Dynamic Evaluation and Ranking Analysis
+### Dynamic Evaluation and Ranking Analysis
 
 Adopting dynamic evaluation cycles introduces the challenge of ensuring that our benchmark and evaluation pipeline remain consistent and reliable across releases. To illustrate this, we analyze the ranking differences among the top 10 models across various dataset versions and system prompt configurations.
 
-##### Analysis of Ranking Changes
+#### Analysis of Ranking Changes
 
-We analyzed model performance under two evaluation scenarios: (1) altering only the system prompt (SP1 vs. SP2) using the latest AraGen version (AraGen-03-25), and (2) updating both the dataset and judge system prompt. The overall rankings were stable, with the top-performing model (*o1-2024-12-17*) consistently maintaining its lead. Notably, we observed a swap in rankings between two Claude models, underscoring the sensitivity of our evaluation approach, especially given their initially close scores.
+We analyzed model performance under two evaluation scenarios:
+
+- Compared SP1 vs. SP2 using the latest AraGen version (**AraGen-03-25**).
+- Assessed the impact of updating both the dataset and judge system prompt.
+
+The overall rankings were stable, with the top-performing model (*o1-2024-12-17*) consistently maintaining its lead. Notably, we observed a swap in rankings between two Claude models, underscoring the sensitivity of our evaluation approach, especially given their initially close scores.
 
 The only significant change in rankings was for the *gpt-4o-2024-08-06* model, whose performance markedly improved with the updated dataset and prompt. This sudden jump is currently under investigation as part of our ongoing benchmarks-design research.
 
@@ -168,7 +188,7 @@ The robust, consistently top-ranking performance of *o1-2024-12-17* reinforces i
 
 As part of our December release, we introduced 3C3H as a new evaluation measure of the chat capability of models, aimed at assessing both the factuality and usability of LLMs’ answers. Over the past three months, we have observed some interesting findings, which we share in this section.
 
-One emergent trend is that the various dimensions are almost perfectly correlated. In most cases, correct answers are scored as both highly helpful and harmless, while most models fail to maintain this correlation for the conciseness dimension. This generally reflects the way we train these models today, where increased helpfulness is often rewarded with higher verbosity. This trend has recently caught the attention of the research community, as exemplified by the release of OpenAI’s GPT-4.5 model. According to their use cases section, answers from GPT-4.5 are more concise than those from GPT-4, while still being equally helpful. (comprehensive evaluation of gpt-4.5 will be available soon - post this release)
+One emergent trend is that the various dimensions are almost perfectly correlated. In most cases, correct answers are scored as both highly helpful and harmless, while most models fail to maintain this correlation for the conciseness dimension. This generally reflects the way we train these models today, where increased helpfulness is often rewarded with higher verbosity. This trend has recently caught the attention of the research community, as exemplified by the release of OpenAI’s GPT-4.5 model. According to their use cases section **TODO**:[ADD A LINK], answers from GPT-4.5 are more concise than those from GPT-4, while still being equally helpful. **TODO**:(IS IT REQUIRED??comprehensive evaluation of gpt-4.5 will be available soon - post this release)
 
 ![HeatMap for o1-2024-12-17](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/o1-heatmap.png)
 
@@ -293,11 +313,14 @@ Additionally, we utilized scoring metrics introduced by Google in the  IFEval fr
 
 In our analysis, we will emphasize the prompt-level strict accuracy as it provides the most rigorous assessment of a model's instruction-following capabilities.
 
-#### Results & Analysis
+#### Results & Analysis 
+**TODO** : paragraphs are repeated below, please check for evaluation metrics as we have hidden few accuracy columns on leaderboard
+
 We evaluated a broad range of LLMs on both the English IFEval benchmark and our newly introduced Arabic IFEval. This encompassed closed-source models (such as OpenAI's GPT series and Anthropic's Claude models) and open-source alternatives (including the Jais series, Meta’s LLaMA-2 variants, and various open bilingual models), amounting to over 40 different models in total. Below, we present a summary of results for a representative subset of these models, comparing their prompt-level accuracy on both English and Arabic IFEval. Accuracy is reported using both strict and loose criteria, with values expressed as the percentage of prompts successfully completed.
 
 We evaluated a broad range of LLMs on both the English IFEval benchmark and our new Arabic IFEval. This included both closed-source models (like OpenAI's GPT & Anthropic's Claude models) and open-source models (Jais series, Meta’s LLaMA-2 variants, open bilingual models, etc.), totaling over 40 models. Below you can expand some of the results obtained for a representative subset of models, comparing their prompt-level accuracy on English vs Arabic IFEval (All values are percentages of prompts passed). 
 
+**TODO**: Table requires reformatting, its not rendered correctly. or Should we add gradio space instead of table just like AraGen??
 <details>
   <summary>Instruction Following Leaderboard Sample</summary>
     

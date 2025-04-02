@@ -85,13 +85,13 @@ Additionally, we refined the **judge system prompt** to enhance clarity, even fo
 
 ### Dynamic Evaluation and Ranking Analysis
 
-Adopting dynamic evaluation cycles introduces the challenge of ensuring that our benchmark and evaluation pipeline remain consistent and reliable across releases. To illustrate this, we analyze the ranking differences among the top 10 models across various dataset versions and system prompt configurations.
+Maintaining consistency and reliability in our benchmark and evaluation pipeline is crucial as we introduce dynamic evaluation cycles. To ensure this, we analyzed ranking variations among the top 10 models across different dataset versions and system prompt configurations.
 
 #### Analysis of Ranking Changes
 
 We analyzed model performance under two evaluation scenarios:
 
-- Compared SP1 vs. SP2 using the latest AraGen version (**AraGen-03-25**).
+- Compared previous system prompt (SP1) vs. current system prompt (SP2) using the latest AraGen version (**AraGen-03-25**).
 - Assessed the impact of updating both the dataset and judge system prompt.
 
 The overall rankings were stable, with the top-performing model (*o1-2024-12-17*) consistently maintaining its lead. Notably, we observed a swap in rankings between two Claude models, underscoring the sensitivity of our evaluation approach, especially given their initially close scores.
@@ -100,7 +100,7 @@ The only significant change in rankings was for the *gpt-4o-2024-08-06* model, w
 
 No major variations occurred solely due to changes in the system prompt, indicating good reproducibility as long as the same judge model (*claude-3.5-sonnet*) is used. However, we anticipate potential variations with smaller or weaker models as judges, where employing the second system prompt (SP2) may enhance consistency.
 
-The robust, consistently top-ranking performance of *o1-2024-12-17* reinforces its reliability for Arabic applications. While recent updates to the evaluation pipeline introduced minor ranking shifts, the overall framework remained stable, with top and bottom performers showing consistency. Many observed ranking adjustments likely reflect typical evaluation error margins due to minor score differences. Notably, the second-ranked model’s score significantly dropped from 78.74% (AraGen-12-24) to 57.38% (AraGen-03-25), clearly indicating that the updated AraGen dataset poses a more challenging benchmark aligned with current advancements in reasoning models.
+As a summary, the robust, consistently top-ranking performance of *o1-2024-12-17* reinforces its reliability for Arabic applications. While recent updates to the evaluation pipeline introduced minor ranking shifts, the overall framework remained stable, with top and bottom performers showing consistency. Many observed ranking adjustments likely reflect typical evaluation error margins due to minor score differences. Notably, the second-ranked model’s score significantly dropped from 78.74% (AraGen-12-24) to 57.38% (AraGen-03-25), clearly indicating that the updated AraGen dataset poses a more challenging benchmark aligned with current advancements in reasoning models.
 
 <details>
   <summary>More Detailed Scores</summary>
@@ -137,10 +137,14 @@ The robust, consistently top-ranking performance of *o1-2024-12-17* reinforces i
 | 9        | Qwen/Qwen2.5-72B-Instruct  | 43.09%     | 48.82%      | 47.55%       | 19.73%      | 46.59%      | 47.11%  | 48.75%       |
 | 10       | gpt-4o-mini-2024-07-18     | 40.62%     | 45.10%      | 40.88%       | 27.60%      | 42.06%      | 43.58%  | 44.51%       |
 
-**Observations :**
-- **Top and Bottom Stability:** The top two models (o1-2024-12-17 and gpt-4o-2024-08-06) remain consistent, as do the lowest-ranked models.
-- **Swap Among Claude Models:** A reversal in ranking between claude-3-5-sonnet-20241022 and claude-3-7-sonnet-20250219 indicates that the updated system prompt in SP2 provides a slight advantage to claude-3-7-sonnet.
-- **Minor Adjustments:** Overall, apart from the Claude swap, score changes are minimal, suggesting robust evaluation under both prompt conditions.
+[//]: # (**Observations :**)
+
+[//]: # (- **Top and Bottom Stability:** The top two models &#40;o1-2024-12-17 and gpt-4o-2024-08-06&#41; remain consistent, as do the lowest-ranked models.)
+
+[//]: # (- **Swap Among Claude Models:** A reversal in ranking between claude-3-5-sonnet-20241022 and claude-3-7-sonnet-20250219 indicates that the updated system prompt in SP2 provides a slight advantage to claude-3-7-sonnet.)
+
+[//]: # (- **Minor Adjustments:** Overall, apart from the Claude swap, score changes are minimal, suggesting robust evaluation under both prompt conditions.)
+
 
 ###### Couple 2: Dataset and Prompt Update Effect (AraGen-12-24 SP1 (old) vs. AraGen-03-25 SP2 (new))
 
@@ -174,12 +178,17 @@ The robust, consistently top-ranking performance of *o1-2024-12-17* reinforces i
 | 9        | Qwen/Qwen2.5-72B-Instruct  | 43.09%     | 48.82%      | 47.55%       | 19.73%      | 46.59%      | 47.11%  | 48.75%       |
 | 10       | gpt-4o-mini-2024-07-18     | 40.62%     | 45.10%      | 40.88%       | 27.60%      | 42.06%      | 43.58%  | 44.51%       |
 
-**Observations :**
-- **Top Model Consistency:** The model o1-2024-12-17 remains at the top in both AraGen-12-24 and AraGen-03-25.
-- **Notable Shifts:**  
-  - *gpt-4o-2024-08-06* improves from rank #4 in AraGen-12-24 to rank #2 in AraGen-03-25, suggesting that the updated dataset favor its performance. 
-  - The Claude variants show a slight reordering, mirroring the previous observations.
-- **Mid-Tier Adjustments:** Minor ranking shifts are observed among mid-tier models, which may fall within typical evaluation error margins.
+[//]: # (**Observations :**)
+
+[//]: # (- **Top Model Consistency:** The model o1-2024-12-17 remains at the top in both AraGen-12-24 and AraGen-03-25.)
+
+[//]: # (- **Notable Shifts:**  )
+
+[//]: # (  - *gpt-4o-2024-08-06* improves from rank #4 in AraGen-12-24 to rank #2 in AraGen-03-25, suggesting that the updated dataset favor its performance. )
+
+[//]: # (  - The Claude variants show a slight reordering, mirroring the previous observations.)
+
+[//]: # (- **Mid-Tier Adjustments:** Minor ranking shifts are observed among mid-tier models, which may fall within typical evaluation error margins.)
 
 </details>
 
@@ -203,13 +212,13 @@ This is an ongoing effort to better understand how these dimensions are intercon
 
 We believe that one limitation of this analysis is the zeroing rule, whereby we do not evaluate the other dimensions if the answer is not correct. In the future, we plan to investigate further whether an answer can be helpful despite being incorrect, and how dimensions such as conciseness and harmlessness factor into this evaluation if the answer is not correct.
 
-### Instruction Following
+## Instruction Following Leaderboard
 
-#### What is Instruction Following as a Benchmark? 
+### What is Instruction Following as a Benchmark? 
 
 One of the core capabilities of large language models (LLMs) is their ability to understand and follow human instructions. This skill is crucial for building reliable chatbots, virtual assistants, and AI systems that do what users ask. Without strong instruction-following, a model might generate correct information but in the wrong format, ignore user-specified constraints, or produce unwanted content. Instruction-Following benchmark is standardized, objective way to measure a model's instruction adherence and compare models fairly to drive improvements. 
 
-#### Dataset: Arabic IFEval 
+### Dataset: Arabic IFEval 
 
 Our work took inspiration from [IFEval](https://arxiv.org/abs/2311.07911) dataset. IFEval, originally introduced by Google, provides a structured benchmark designed explicitly to evaluate LLMs on their ability to follow verifiable instructions. It consists of prompts containing specific, objectively measurable commands such as “use exactly three bullet points,” “include the word ‘innovation’ twice,” or “limit your answer to 100 words.”  English IFEval dataset contains around 500 prompts covering 25 different types of such verifiable instructions. Evaluation within IFEval is conducted through Python functions that automatically verify whether instructions are followed or not avoiding the need for human evaluators or another AI judge, this makes the evaluations **reproducible and unbiased**. While IFEval dataset has become the standard for assessing English-LLMs, a similarly detailed and structured resource is absent for Arabic, leaving a gap in evaluating Arabic LLMs' instrcution-following capabilities.
 
@@ -305,20 +314,20 @@ Your response must explicitly include the following Arabic spellings at least on
 ```
 </details>
 
-#### Evaluation Methodology & Metrics 
+### Evaluation Methodology & Metrics 
 
 To evaluate the models, we adopted a comprehensive methodology combining both explicit and implicit evaluation techniques. Explicit evaluation involved using automated scripts to  assess whether instructions were strictly followed, focusing on elements such as correct formatting and specific word usage. Implicit evaluation addressed more nuanced linguistic expectations, such as maintaining the intended response language and avoiding repetitive patterns.
 
-Additionally, we utilized scoring metrics introduced by Google in the  IFEval framework, applying these metrics at both prompt-level and instruction-level granularity. These metrics were measured using strict criteria accuracy, which requires  adherence to the provided instructions. The prompt-level score is notably harder, reflecting the user's viewpoint by asking, "Did I get everything I requested?" If a prompt included multiple requirements, failing to meet any single requirement would mean the user's request was not fully satisfied. In contrast, the instruction-level score is more lenient, allowing us to evaluate partial compliance.
+Additionally, we utilized scoring metrics introduced by Google in the IFEval framework, applying these metrics at both prompt-level and instruction-level granularity. These metrics were measured using strict criteria accuracy, which requires adherence to the provided instructions. The prompt-level score is notably harder, reflecting the user's viewpoint by asking, "Did I get everything I requested?" If a prompt included multiple requirements, failing to meet any single requirement would mean the user's request was not fully satisfied. In contrast, the instruction-level score is more lenient, allowing us to evaluate partial compliance.
 
 In our analysis, we will emphasize the prompt-level strict accuracy as it provides the most rigorous assessment of a model's instruction-following capabilities.
 
-#### Results & Analysis 
-**TODO** : paragraphs are repeated below, please check for evaluation metrics as we have hidden few accuracy columns on leaderboard
+### Results & Analysis 
+**TODO** : please check for evaluation metrics as we have hidden few accuracy columns on leaderboard
 
-We evaluated a broad range of LLMs on both the English IFEval benchmark and our newly introduced Arabic IFEval. This encompassed closed-source models (such as OpenAI's GPT series and Anthropic's Claude models) and open-source alternatives (including the Jais series, Meta’s LLaMA-2 variants, and various open bilingual models), amounting to over 40 different models in total. Below, we present a summary of results for a representative subset of these models, comparing their prompt-level accuracy on both English and Arabic IFEval. Accuracy is reported using both strict and loose criteria, with values expressed as the percentage of prompts successfully completed.
+We evaluated a broad range of LLMs on both the English IFEval benchmark and our newly introduced Arabic IFEval. This encompassed closed-source models (such as OpenAI's GPT series and Anthropic's Claude models) and open-source alternatives (including the Jais series, Meta’s LLaMA-2 variants, and various open bilingual models). Below, we present a summary of results for a representative subset of these models, comparing their prompt-level accuracy on both English and Arabic IFEval. Accuracy is reported using both strict and loose criteria, with values expressed as the percentage of prompts successfully completed.
 
-We evaluated a broad range of LLMs on both the English IFEval benchmark and our new Arabic IFEval. This included both closed-source models (like OpenAI's GPT & Anthropic's Claude models) and open-source models (Jais series, Meta’s LLaMA-2 variants, open bilingual models, etc.), totaling over 40 models. Below you can expand some of the results obtained for a representative subset of models, comparing their prompt-level accuracy on English vs Arabic IFEval (All values are percentages of prompts passed). 
+[//]: # (We evaluated a broad range of LLMs on both the English IFEval benchmark and our new Arabic IFEval. This included both closed-source models &#40;like OpenAI's GPT & Anthropic's Claude models&#41; and open-source models &#40;Jais series, Meta’s LLaMA-2 variants, open bilingual models, etc.&#41;, totaling over 40 models. Below you can expand some of the results obtained for a representative subset of models, comparing their prompt-level accuracy on English vs Arabic IFEval &#40;All values are percentages of prompts passed&#41;. )
 
 <details>
   <summary>Instruction Following Leaderboard Sample</summary>

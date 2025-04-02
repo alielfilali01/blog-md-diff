@@ -40,13 +40,13 @@ As part of our ongoing efforts, we are excited to share the following updates:
 The following sections provide details about each of these updates.
 
 ## Arabic-Leaderboards Space
-**Arabic-Leaderboards**[add a link] is a comprehensive and unified space for all Arabic evaluations and tasks. It is meant to serve as a central hub covering a broad spectrum of evaluations, for models across modalities. Currently, it has AraGen 2 and Arabic Instruction Following as live leaderboards. We plan to expand this space with more leaderboards and tasks for Arabic AI models across various modalities. 
+**Arabic-Leaderboards** is a comprehensive and unified space for all Arabic evaluations and tasks. It is meant to serve as a central hub covering a broad spectrum of evaluations, for models across modalities. Currently, it has AraGen 2 and Arabic Instruction Following as live leaderboards. We plan to expand this space with more leaderboards and tasks for Arabic AI models across various modalities. 
 
-We invite interested contributors to reach out to us through the community tab[add a link] or directly in order to discuss how to integrate their work/leaderboards as additional tabs into this space.
+We invite interested contributors to reach out to us through the community tab or directly in order to discuss how to integrate their work/leaderboards as additional tabs into this space.
 
 ## Latest Updates in AraGen Leaderboard
 
-In December 2024, we introduced the AraGen Benchmark as the foundation for the AraGen Leaderboard. A key feature of this leaderboard is its dynamic nature, with evaluation datasets remaining private (blind testing) for three months to ensure fair and unbiased assessments. Adhering to the same philosophy, we are publicly releasing the **AraGen-12-24 benchmark**[ADD A LINK], along with all model responses evaluated by **Claude-3.5-Sonnet** following the **3C3H guidelines**.  
+In December 2024, we introduced the AraGen Benchmark as the foundation for the AraGen Leaderboard. A key feature of this leaderboard is its dynamic nature, with evaluation datasets remaining private (blind testing) for three months to ensure fair and unbiased assessments. Adhering to the same philosophy, we are publicly releasing the **AraGen-12-24 benchmark**, along with all model responses evaluated by **Claude-3.5-Sonnet** following the **3C3H guidelines**.  
 
 By sharing this benchmark and model responses, we aim to encourage the community to review them, identify any unexpected behaviors we may have missed and help us refine our evaluation framework.
 
@@ -188,7 +188,7 @@ The robust, consistently top-ranking performance of *o1-2024-12-17* reinforces i
 
 As part of our December release, we introduced 3C3H as a new evaluation measure of the chat capability of models, aimed at assessing both the factuality and usability of LLMs’ answers. Over the past three months, we have observed some interesting findings, which we share in this section.
 
-One emergent trend is that the various dimensions are almost perfectly correlated. In most cases, correct answers are scored as both highly helpful and harmless, while most models fail to maintain this correlation for the conciseness dimension. This generally reflects the way we train these models today, where increased helpfulness is often rewarded with higher verbosity. This trend has recently caught the attention of the research community, as exemplified by the release of OpenAI’s GPT-4.5 model. According to their use cases section **TODO**:[ADD A LINK], answers from GPT-4.5 are more concise than those from GPT-4, while still being equally helpful. **TODO**:(IS IT REQUIRED??comprehensive evaluation of gpt-4.5 will be available soon - post this release)
+One emergent trend is that the various dimensions are almost perfectly correlated. In most cases, correct answers are scored as both highly helpful and harmless, while most models fail to maintain this correlation for the conciseness dimension. This generally reflects the way we train these models today, where increased helpfulness is often rewarded with higher verbosity. This trend has recently caught the attention of the research community, as exemplified by the release of OpenAI’s GPT-4.5 model. According to their [use cases section](https://openai.com/index/introducing-gpt-4-5/), answers from GPT-4.5 are more concise than those from GPT-4, while still being equally helpful.
 
 ![HeatMap for o1-2024-12-17](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/o1-heatmap.png)
 
@@ -320,7 +320,6 @@ We evaluated a broad range of LLMs on both the English IFEval benchmark and our 
 
 We evaluated a broad range of LLMs on both the English IFEval benchmark and our new Arabic IFEval. This included both closed-source models (like OpenAI's GPT & Anthropic's Claude models) and open-source models (Jais series, Meta’s LLaMA-2 variants, open bilingual models, etc.), totaling over 40 models. Below you can expand some of the results obtained for a representative subset of models, comparing their prompt-level accuracy on English vs Arabic IFEval (All values are percentages of prompts passed). 
 
-**TODO**: Table requires reformatting, its not rendered correctly. or Should we add gradio space instead of table just like AraGen??
 <details>
   <summary>Instruction Following Leaderboard Sample</summary>
     

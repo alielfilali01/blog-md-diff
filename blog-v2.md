@@ -1,5 +1,5 @@
 ---
-title: "Arabic Leaderboards: Introducing Arabic Instruction Following, AraGen Updates, and More"
+title: "Arabic Leaderboards: Introducing Arabic Instruction Following, Updating AraGen, and More"
 thumbnail: /blog/assets/leaderboards-on-the-hub/thumbnail_3c3h_aragen.png
 authors:
 - user: alielfilali01
@@ -22,7 +22,7 @@ authors:
   org: MBZUAI
 ---
 
-# Arabic Leaderboards: Introducing Arabic Instruction Following, AraGen Updates, and More
+# Arabic Leaderboards: Introducing Arabic Instruction Following, Updating AraGen, and More
 
 
 We have been working to enhance AI model evaluations within the Arabic language context. Previously, we introduced **AraGen**, one of the first generative Arabic leaderboards, serving as a benchmark for evaluating Arabic LLMs on generative tasks.  
@@ -60,11 +60,6 @@ AraGen leaderboard is updated with a new version of benchmark (AraGen-03-25).
   height="560px"
 ></iframe>
 
-[//]: # (In addition, we have open-sourced our entire code base. This step is intended to enhance transparency and reproducibility, and we welcome community contributions, whether through issue reports or pull requests.)
-
-[//]: # (## What’s New Today?)
-
-[//]: # (Today’s update marks a shift toward a more comprehensive and unified space for all Arabic evaluations and tasks. The new Arabic-Leaderboards Space is meant to serve as a central hub covering a broad spectrum of evaluations—from language models and &#40;soon&#41; vision-language models to embedding models, tokenizers, and more in the future. We invite interested contributors to reach out to us through the community tab or directly in order to discuss how to integrate their work/leaderboards as additional tabs into this space.)
 
 ### AraGen-03-25 Release
 
@@ -79,8 +74,6 @@ This allocation reflects the primary focus on question answering as the main use
 ![Tasks Distribution (%)](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/PercentageDistributionOfTasks.png)
 
 Additionally, we refined the **judge system prompt** to enhance clarity, even for smaller/weaker judge models. 
-
-[//]: # (Both the previous and current system prompts are available in our code base, and we encourage the community to experiment more around altering the system prompt for different judges.)
 
 
 ### Dynamic Evaluation and Ranking Analysis
@@ -137,13 +130,6 @@ As a summary, the robust, consistently top-ranking performance of *o1-2024-12-17
 | 9        | Qwen/Qwen2.5-72B-Instruct  | 43.09%     | 48.82%      | 47.55%       | 19.73%      | 46.59%      | 47.11%  | 48.75%       |
 | 10       | gpt-4o-mini-2024-07-18     | 40.62%     | 45.10%      | 40.88%       | 27.60%      | 42.06%      | 43.58%  | 44.51%       |
 
-[//]: # (**Observations :**)
-
-[//]: # (- **Top and Bottom Stability:** The top two models &#40;o1-2024-12-17 and gpt-4o-2024-08-06&#41; remain consistent, as do the lowest-ranked models.)
-
-[//]: # (- **Swap Among Claude Models:** A reversal in ranking between claude-3-5-sonnet-20241022 and claude-3-7-sonnet-20250219 indicates that the updated system prompt in SP2 provides a slight advantage to claude-3-7-sonnet.)
-
-[//]: # (- **Minor Adjustments:** Overall, apart from the Claude swap, score changes are minimal, suggesting robust evaluation under both prompt conditions.)
 
 
 ###### Couple 2: Dataset and Prompt Update Effect (AraGen-12-24 SP1 (old) vs. AraGen-03-25 SP2 (new))
@@ -178,17 +164,6 @@ As a summary, the robust, consistently top-ranking performance of *o1-2024-12-17
 | 9        | Qwen/Qwen2.5-72B-Instruct  | 43.09%     | 48.82%      | 47.55%       | 19.73%      | 46.59%      | 47.11%  | 48.75%       |
 | 10       | gpt-4o-mini-2024-07-18     | 40.62%     | 45.10%      | 40.88%       | 27.60%      | 42.06%      | 43.58%  | 44.51%       |
 
-[//]: # (**Observations :**)
-
-[//]: # (- **Top Model Consistency:** The model o1-2024-12-17 remains at the top in both AraGen-12-24 and AraGen-03-25.)
-
-[//]: # (- **Notable Shifts:**  )
-
-[//]: # (  - *gpt-4o-2024-08-06* improves from rank #4 in AraGen-12-24 to rank #2 in AraGen-03-25, suggesting that the updated dataset favor its performance. )
-
-[//]: # (  - The Claude variants show a slight reordering, mirroring the previous observations.)
-
-[//]: # (- **Mid-Tier Adjustments:** Minor ranking shifts are observed among mid-tier models, which may fall within typical evaluation error margins.)
 
 </details>
 
@@ -201,9 +176,11 @@ One emergent trend is that the various dimensions are almost perfectly correlate
 
 ![HeatMap for o1-2024-12-17](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/o1-heatmap.png)
 
+
 A model that stood out in this analysis is “silma-ai/SILMA-9B-Instruct-v1.0”, which exhibited a higher conciseness score compared to other open-weight models—even those with larger sizes. However, this gain in conciseness came at the cost of helpfulness and other dimensions when compared to its base model, “google/gemma-2-9b-it”. We believe that this analysis, along with optimizing for 3C3H, will enable the community to develop better models through curated datasets while maintaining the correlation across all dimensions.
 
 ![SILMA-9B-Instruct-v1.0 VS Gemma-2-9b-it HeatMaps](https://huggingface.co/spaces/inceptionai/Arabic-Leaderboards/raw/main/assets/pictures/03-25/silma-vs-gemma-heatmap.png)
+
 
 This is an ongoing effort to better understand how these dimensions are interconnected and how various scenarios and training recipes affect this relationship. Below, we provide a space where you can generate heatmaps for any combination of models of your choice. We hope the community finds it helpful in spotting additional trends that we may not have noticed. Ultimately, we aim for this tool to foster more discussion about evaluation and 3C3H, serving as a resource for others’ work.
 
@@ -323,11 +300,9 @@ Additionally, we utilized scoring metrics introduced by Google in the IFEval fra
 In our analysis, we will emphasize the prompt-level strict accuracy as it provides the most rigorous assessment of a model's instruction-following capabilities.
 
 ### Results & Analysis 
-**TODO** : please check for evaluation metrics as we have hidden few accuracy columns on leaderboard
 
 We evaluated a broad range of LLMs on both the English IFEval benchmark and our newly introduced Arabic IFEval. This encompassed closed-source models (such as OpenAI's GPT series and Anthropic's Claude models) and open-source alternatives (including the Jais series, Meta’s LLaMA-2 variants, and various open bilingual models). Below, we present a summary of results for a representative subset of these models, comparing their prompt-level accuracy on both English and Arabic IFEval. Accuracy is reported using both strict and loose criteria, with values expressed as the percentage of prompts successfully completed.
 
-[//]: # (We evaluated a broad range of LLMs on both the English IFEval benchmark and our new Arabic IFEval. This included both closed-source models &#40;like OpenAI's GPT & Anthropic's Claude models&#41; and open-source models &#40;Jais series, Meta’s LLaMA-2 variants, open bilingual models, etc.&#41;, totaling over 40 models. Below you can expand some of the results obtained for a representative subset of models, comparing their prompt-level accuracy on English vs Arabic IFEval &#40;All values are percentages of prompts passed&#41;. )
 
 <details>
   <summary>Instruction Following Leaderboard Sample</summary>

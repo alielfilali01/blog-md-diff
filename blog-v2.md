@@ -1,5 +1,5 @@
 ---
-title: "Arabic Leaderboards: Introducing Arabic Instruction Following, Updating AraGen, and More"
+title: "Arabic Leaderboards: Introducing Arabic Instruction Following, AraGen Updates, and More"
 thumbnail: /blog/assets/leaderboards-on-the-hub/thumbnail_3c3h_aragen.png
 authors:
 - user: alielfilali01
@@ -22,7 +22,7 @@ authors:
   org: MBZUAI
 ---
 
-# Arabic Leaderboards: Introducing Arabic Instruction Following, Updating AraGen, and More
+# Arabic Leaderboards: Introducing Arabic Instruction Following, AraGen Updates, and More
 
 
 We have been working to enhance AI model evaluations within the Arabic language context. Previously, we introduced **AraGen**, one of the first generative Arabic leaderboards, serving as a benchmark for evaluating Arabic LLMs on generative tasks.  
@@ -31,7 +31,7 @@ As part of our ongoing efforts, we are excited to share the following updates:
 
 - **Arabic-Leaderboards Space**, launched in collaboration with **Mohammed bin Zayed University of Artificial Intelligence (MBZUAI)** to consolidate Arabic AI evaluations in one place. This platform currently supports **AraGen 2** and **Arabic Instruction Following**, with plans to expand to leaderboards for Arabic AI models across various modalities.
 - **AraGen 03-25 release** with improvements and updated benchmark.  
-- **Arabic Instruction Following leaderboard**, powered by **Arabic IFEval Benchmark**, the first publicly available benchmark for evaluating instruction-following capabilities in Arabic.  
+- **Instruction Following leaderboard**, powered by **Arabic IFEval Benchmark**, the first publicly available benchmark for evaluating instruction-following capabilities in Arabic.  
 
 
 <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.4.0/gradio.js"> </script>
